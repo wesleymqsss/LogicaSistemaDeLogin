@@ -9,6 +9,10 @@ if(!empty($_POST['usuario']) && !empty($_POST['password'])){
     // usuario == admin e senha == admin
     if ($usuario == 'admin' && $senha == 'admin'){
        $_SESSION['usuario'] = $usuario;
+       if(!empty($_POST['tema'])){
+            setcookie('tema', htmlspecialchars($_POST['tema']));
+       }
+
        header('Location: welcome.php');
        
     }else {
